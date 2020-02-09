@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Pregunta from './components/Pregunta';
+import Listado from './components/Listado';
 import Formulario from './components/Formulario';
 import './App.css';
 
@@ -9,6 +10,15 @@ function App() {
   const [ presupuesto, guardarPresupuesto] = useState(0);
   const [ restante, guardarRestante] = useState(0);
   const [ mostrarpregunta, actualizarPregunta] = useState(true);
+  const [ gastos, guardarGastos] = useState([]);
+
+  //cuando agreguemos un nuevo gasto
+  const agregarNuevoGasto = gasto => {
+    guardarGastos([
+      ...gastos,
+      gasto
+    ])
+  }
 
 
   return (
@@ -31,10 +41,14 @@ function App() {
                 <>
                   <div className="row">
                     <div className="col-6">
-                      <Formulario/>
+                      <Formulario
+                        agregarNuevoGasto={agregarNuevoGasto}
+                      />
                     </div>
                     <div className="col-6">
-                      2
+                      <Listado 
+                        gastos={gastos}
+                      />
                     </div>
                   </div>
                 </>
