@@ -63,13 +63,13 @@ function App() {
               (
                 <>
                   <div className="row">
-                    <div className="col-6 col-sm-6">
+                    <div className="col-12 col-sm-12 col-md-6">
                       <Formulario
                         guardarGasto={guardarGasto}
                         guardarCrearGasto={guardarCrearGasto}
                       />
                     </div>
-                    <div className="col-6 col-sm-6">
+                    <div className="col-12 col-sm-12 col-md-6">
                       <Listado 
                         gastos={gastos}
                       />
