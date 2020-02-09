@@ -1,10 +1,16 @@
 import React from 'react';
+import Pregunta from './components/Pregunta';
 import './App.css';
 
 function App() {
   return (
-    <> 
-      <h1>Presupuesto</h1>
+    <>
+      <div className="container">
+        <header>
+          <h1 className="text-center">Gasto Semanal</h1>
+          <Pregunta />
+        </header>
+      </div> 
     </>
   );
 }
