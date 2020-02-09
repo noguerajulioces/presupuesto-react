@@ -1,7 +1,8 @@
 import React, { useState} from 'react';
 import Error from './Error';
+import Formulario from './Formulario';
 
-const Pregunta = ({guardarPresupuesto, guardarRestante}) => {
+const Pregunta = ({guardarPresupuesto, guardarRestante, actualizarPregunta}) => {
 
   // definir el state
   const [ cantidad, guardarCantidad ] = useState(0);
@@ -25,35 +26,32 @@ const Pregunta = ({guardarPresupuesto, guardarRestante}) => {
     guardarError(false);
     guardarPresupuesto(cantidad);
     guardarRestante(cantidad);
+    actualizarPregunta(false);
   }
 
 
   return(
     <>
-      <div className="card">
-          <div className="card-body">
-            <h3 className="text-center">Ingresa tu presupuesto</h3>
+      <h3 className="text-center">Ingresa tu presupuesto</h3>
 
-            { error ? <Error mensaje="El presupuesto es incorrecto"/> : null }
-            <form 
-              onSubmit={agregarPresupuesto}
-            >
-              <div className="form-group">
-                <input 
-                  type="number"
-                  className="form-control"
-                  placeholder="Coloca tu presupuesto"
-                  onChange={definirPresupuesto}
-                />
-              </div>
-                <input 
-                  type="submit"
-                  className="btn btn-primary btn-block"
-                  value="Definir presupuesto"
-                />
-            </form>
-          </div>
-      </div>
+      { error ? <Error mensaje="El presupuesto es incorrecto"/> : null }
+      <form 
+        onSubmit={agregarPresupuesto}
+      >
+        <div className="form-group">
+          <input 
+            type="number"
+            className="form-control"
+            placeholder="Coloca tu presupuesto"
+            onChange={definirPresupuesto}
+          />
+        </div>
+          <input 
+            type="submit"
+            className="btn btn-primary btn-block"
+            value="Definir presupuesto"
+          />
+      </form>
     </>  
   );
 }
