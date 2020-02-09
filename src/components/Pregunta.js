@@ -1,6 +1,5 @@
 import React, { useState} from 'react';
 import Error from './Error';
-import Formulario from './Formulario';
 
 const Pregunta = ({guardarPresupuesto, guardarRestante, actualizarPregunta}) => {
 

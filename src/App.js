@@ -18,12 +18,22 @@ function App() {
   // use effect que actualiza restante
   useEffect(() => {
     if(crearGasto){
+
+      // agrega el nuevo presupuest
       guardarGastos([
         ...gastos,
         gasto
       ])
+
+      // resta del presupuesto actual
+      const presupuestoRestante = restante - gasto.cantidad;
+      guardarRestante(presupuestoRestante);
+      // resetear a false
+      guardarCrearGasto(false);
     }
-  }, [gasto]);
+
+    
+  }, [gasto, crearGasto, restante, gastos]);
 
   //cuando agreguemos un nuevo gasto
   // const agregarNuevoGasto = gasto => {
